@@ -106,7 +106,7 @@ creates a new branch `languages`, which is as of now identical to `master`. The 
   languages
 * master
 ```
-The * marks the current branch. One can change betwenn branches with `checkout`. E.g.
+The * marks the current branch. One can change between branches with `checkout`. E.g.
 ```
 git checkout languages
 ```
