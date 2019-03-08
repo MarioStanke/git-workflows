@@ -126,7 +126,38 @@ and commit to master branch
 git add src/hallowelt.c
 ```
 
-Now we have two branches 
+Now we have two active branches with commited changes that are specific to the branch:
+```
+$ git log --all --graph --oneline
+
+* 0a9025e (HEAD -> master) using namespace std
+* 8a03ccf README.md
+| * 3028bc7 (languages) new languages
+|/  
+* 5e873f2 created .gitignore file
+* 59e8180 Added Hallo Welt program
+* fd6fdae first commit
+```
+
+The hash values, that are used to identify a commit, are here abbreviated with the first 7 characters but the abbreviations can be used, e.g. 
+
+```
+$ git diff 5e873f2
+```
+compares the current commit (*HEAD*) with the commit 5e873f2 before the branch. The results could like this
+
+![diff results](diff1.png)
+
+To compare with the latest commit on the `languages` branch one would issue `git diff 3028bc7`.
+
+## 6) Merge two branches
+
+Suppose the language work has finished and we want to copy those changes into the master branch.
+Since the branching, both the `master` and `languages` branch have changed and some of the changes
+concerned the same lines (the line with `cout`). Although changes in different code lines are resolved automatically by git, we have to expect a conflict in this case.
+
+
+
 
 Make languages the current branch
 
