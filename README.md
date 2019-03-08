@@ -111,6 +111,22 @@ The * marks the current branch. One can change between branches with `checkout`.
 git checkout languages
 ```
 
+Add command line arguments to `main` function and `using namespace std`
+```
+#include <iostream>
+using namespace std;
+
+int main(int argc, char** argv){
+    cout << "Hallo Welt!" << endl;
+    return 0;
+}
+```
+and commit to master branch
+```
+git add src/hallowelt.c
+```
+
+Now we have two branches 
 
 Make languages the current branch
 
