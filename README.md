@@ -110,6 +110,26 @@ The * marks the current branch. One can change between branches with `checkout`.
 ```
 git checkout languages
 ```
+Make languages the current branch
+
+Change `hallowelt.cc` like this
+
+```
+#include<iostream>
+#include<string>
+
+int main(){
+    enum languages {german, english, french};
+    std::string greetings[3] = {"Hallo Welt!", "Hello world!", "Salut monde!"};
+    languages lang = french;
+    std::cout << greetings[lang] << std::endl;
+    return 0;
+}
+```
+
+Indepently, the development can go on the master branch, e.g.
+```
+checkout master
 
 Add command line arguments to `main` function and `using namespace std`
 ```
@@ -156,8 +176,35 @@ Suppose the language work has finished and we want to copy those changes into th
 Since the branching, both the `master` and `languages` branch have changed and some of the changes
 concerned the same lines (the line with `cout`). Although changes in different code lines are resolved automatically by git, we have to expect a conflict in this case.
 
+```
+git merge languages
+Auto-merging src/hallowelt.cc
+CONFLICT (content): Merge conflict in src/hallowelt.cc
+Automatic merge failed; fix conflicts and then commit the result.
+```
 
+Open `src/hallowelt.cc` in an editor. The conflicts are marked like this:
 
+![conflict](conflict.png)
+
+The two versions in each conflict region of the code are enclosed by `<<<<<<<` and `>>>>>>>` followed by the commit or branch name. Simply edit this file to what it should be, e.g.
+```
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(int argc, char** argv){
+    enum languages {german, english, french};
+    string greetings[3] = {"Hallo Welt!", "Hello world!", "Salut monde!"};
+    languages lang = french;
+    cout << greetings[lang] << endl;
+    return 0;
+}
+```
+build the project, perform the tests (if any) and add the files with resolved conflicts to the staging area before committing.
+
+```
+```
 
 Make languages the current branch
 
