@@ -204,8 +204,19 @@ int main(int argc, char** argv){
 build the project, perform the tests (if any) and add the files with resolved conflicts to the staging area before committing.
 
 ```
+git add src/hallowelt.cc
+git commit -m "merged languages into master"
 ```
+Above commit is called a **merge commit**. In the network of commits, the 'languages' branch is now merged into the master branch which is the only active branch.
+```
+git log --all --graph --oneline
+*   b3247d6 (HEAD -> master) merged languages into master
+|\  
+| * 3028bc7 (languages) new languages
+* | 0a9025e using namespace std
+|/  
+* 5e873f2 created .gitignore file
 
-Make languages the current branch
+```
 
 ## MarkDown
