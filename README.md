@@ -19,7 +19,8 @@ Do no forget to replace YOUR-GH-NAME with your GitHub account name.
  - Browse to [https://github.com/YOUR-GH-NAME/ownProject] to look at the GitHub repository of `ownProject`.
 
 ## Make some local changes
-1) For example, create a directory src under ownProject with files `src/hallowelt.cc` with content
+### 1) Create/edit files
+For example, create a directory src under ownProject with files `src/hallowelt.cc` with content
 ```
 #include<iostream>
 
@@ -36,7 +37,8 @@ hallowelt: hallowelt.cc
 ```
 Make sure there is only one tab and no spaces before `g++` in this makefile.
 
-2) Add the two new files and their parent directory to the **staging area**. In the parent directory execute
+### 2) Make local commit
+Add the two new files and their parent directory to the **staging area**. In the parent directory execute
 ```
 git add src
 git status
@@ -68,9 +70,22 @@ Untracked files:
 
 ```
 
-After the commit, only your local repository is changed. To make the changes also in the remote repository on GitHub do
+### 3) "Push" changes to remote repository
+
+After the commit, only your local repository is changed. The remote repository on GitHub is called **origin** and is unchanged. 
+To make the changes also in the `origin` repository on GitHub do
+```
+git push origin master
+```
+or short
+```
+git push
 ```
 
-```
+Here, `origin` and `master` are the name of the repository and branch to which to "push" the current branch of the local repository. 
+
+## Ignore files that do not need tracking
+
+`.gitignore`
 
 ## MarkDown
