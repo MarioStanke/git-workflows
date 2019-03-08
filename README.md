@@ -86,6 +86,8 @@ Here, `origin` and `master` are the name of the repository and branch to which t
 
 ## Ignore files that do not need tracking
 
-`.gitignore`
+Building the project by issuing `make` in the `src` directory creates the binary file `hallowelt`, which should not be tracked. Files in the workspace that should not be tracked can be specified in a hidden file `.gitignore`. For example, create `ownProject/.gitignore` with the content
+```
+```
 
 ## MarkDown
