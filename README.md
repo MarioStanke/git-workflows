@@ -219,4 +219,15 @@ git log --all --graph --oneline
 
 ```
 
-## MarkDown
+Alternatively, GitHub -> Insights -> Network shows a graph of the branches and commits:
+<img src="graph-after-merge.png" alt="Merge network on GitHub" width="600"/>
+
+## 7) Push and pull - exchange between repositories
+
+
+## 8) Documentation in Markdown
+This documentation is written in **Markdown** format. Similar to HTML-formatted files, such `.md` text files are displayed by GitHub (and other software such as `jupyter-notebook`) as a formatted document with highlighting, images and links. Information and examples are readily available on the internet, e.g. at http://markdown.de or https://www.markdownguide.org/basic-syntax.
+
+It has become customary to document code on GitHub in Markdown with a file `README.md` that explains what the software does and how to install and run it.
+
+## 8) References
