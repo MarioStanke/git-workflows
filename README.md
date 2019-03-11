@@ -185,7 +185,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 Open `src/hallowelt.cc` in an editor. The conflicts are marked like this:
 
-![conflict](conflict.png)
+![conflict](conflict.png "conflict")
 
 The two versions in each conflict region of the code are enclosed by `<<<<<<<` and `>>>>>>>` followed by the commit or branch name. Simply edit this file to what it should be, e.g.
 ```
