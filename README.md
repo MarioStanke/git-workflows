@@ -130,6 +130,7 @@ int main(){
 Indepently, the development can go on the master branch, e.g.
 ```
 checkout master
+```
 
 Add command line arguments to `main` function and `using namespace std`
 ```
