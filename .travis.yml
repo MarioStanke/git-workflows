@@ -5,3 +5,5 @@ matrix:
   - os: linux
     dist: xenial
     sudo: required
+
+script: cd src && make
