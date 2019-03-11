@@ -2,8 +2,9 @@
 
 ## Creation of a New Project
  - Create an account on [GitHub](http://github.com)
- - Create a new project on GitHub (do not check box `README.md`), say with name `ownProject`
+ - Create a new project on GitHub (do **not** check box `README.md`), say, with name `ownProject`
  - Install git through package manager.
+ - Configure git with `git config --global user.name "your name"` and `git config --global user.email "your-email-name@uni-greifswald.de"`  
  - Execute
  ```
 mkdir ownProject
@@ -33,12 +34,11 @@ and file `src/Makefile` with content
 ```
 hallowelt: hallowelt.cc
 	g++ hallowelt.cc -o hallowelt
-
 ```
 Make sure there is only one tab and no spaces before `g++` in this makefile.
 
 ### 2) Make local commit
-Add the two new files and their parent directory to the **staging area**. In the parent directory execute
+Add the two new files and their parent directory to the **staging area**, get a summary of the status of the local repository and commit the changes: In the parent directory execute
 ```
 git add src
 git status
@@ -67,24 +67,10 @@ Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
         create-project.md
-
 ```
+After the commit, only your local repository is changed. The remote repository on GitHub is unchanged.
 
-### 3) "Push" changes to remote repository
-
-After the commit, only your local repository is changed. The remote repository on GitHub is called **origin** and is unchanged. 
-To make the changes also in the `origin` repository on GitHub do
-```
-git push origin master
-```
-or short
-```
-git push
-```
-
-Here, `origin` and `master` are the name of the repository and branch to which to "push" the current branch of the local repository. 
-
-## 4) Ignore files that do not need tracking
+## 3) Ignore files that do not need tracking
 
 Building the project by issuing `make` in the `src` directory creates the binary file `hallowelt`, which should not be tracked. Files in the workspace that should not be tracked can be specified in a hidden file `.gitignore`. For example, create `ownProject/.gitignore` with the content
 ```
@@ -93,20 +79,20 @@ src/hallowelt
 *~
 # ignore object files
 *.o
-
 ```
+Commit these changes with `git add .gitignore` and otherwise as in described in 2).
 
-## 5) Create a branch
+## 4) Create a branch
 Suppose we wanted to add different language for the greeting in another branch. Do
 ```
 git branch languages
 ```
-creates a new branch `languages`, which is as of now identical to `master`. The list ob branches can be obtained with `git branch`:
+creates a new branch `languages`, wich is identical to `master` for now. The list of (local) branches can be obtained with `git branch`:
 ```
   languages
 * master
 ```
-The * marks the current branch. One can change between branches with `checkout`. E.g.
+The * marks the current branch. Obtain all branches, including remote ones with `git branch -a`. One can change between branches with `checkout`. E.g.
 ```
 git checkout languages
 ```
@@ -171,11 +157,11 @@ compares the current commit (*HEAD*) with the commit 5e873f2 before the branch. 
 
 To compare with the latest commit on the `languages` branch one would issue `git diff 3028bc7`.
 
-## 6) Merge two branches
+## 5) Merge two branches
 
 Suppose the language work has finished and we want to copy those changes into the master branch.
 Since the branching, both the `master` and `languages` branch have changed and some of the changes
-concerned the same lines (the line with `cout`). Although changes in different code lines are resolved automatically by git, we have to expect a conflict in this case.
+concerned the same lines (the line with `cout`). Although changes in different code lines are resolved automatically by `git`, we have to expect a conflict in this case.
 
 ```
 git merge languages
@@ -217,14 +203,47 @@ git log --all --graph --oneline
 * | 0a9025e using namespace std
 |/  
 * 5e873f2 created .gitignore file
-
 ```
 
 Alternatively, GitHub -> Insights -> Network shows a graph of the branches and commits:
 <img src="graph-after-merge.png" alt="Merge network on GitHub" width="600"/>
 
-## 7) Push and pull - exchange between repositories
+## 6) Push and pull - exchange between repositories
 
+The remote repository on GitHub is called **origin** by default. 
+
+To make the changes from your local master branch (current HEAD0 also in the `origin` repository on GitHub do
+```
+git push origin master
+```
+or short
+```
+git push
+```
+
+Here, `origin` and `master` are the name of the repository and branch to which to [push](https://git-scm.com/docs/git-push) the current branch of the local repository.
+
+To incorporate changes (typically from other developers) that were made in the orign repository perform a so-called [pull](https://git-scm.com/docs/git-pull), e.g. from the master branch with
+
+```
+git pull origin master
+```
+
+This merges the changes that were made locally with the changes that were made remotely since the two branches diverged. It may require that *conflicts are resolved*.
+
+## 7) pull request
+
+Felix Becker or myself will review code in order to ensure quality. For this purpose, we will use *feature* branches. Suppose you have been assigned to implement a feature called *shortest-path*, have developed it on a local branch called `feature/shortest-path`, have built and tested it, finished this task and want to merge it into the `master` branch on GitHub.
+
+```
+git branch feature/shortest-path
+git checkout  feature/shortest-path
+git push origin feature/shortest-path # creates the branch remotely as well
+[hours or days of work, local commiting and testing]
+```
+Browse to the *branches* tab of the project on GitHub and click "New pull request" for `feature/shortest-path`. Fill out a summary of what you did as a comment and click "Create pull request". This
+will send Felix and me a message that we are requested to *pull* your changes to the master branch.
+We will review the changes, give comments and possibly request changes. After possibly several rounds of requests and comments, eventually, we may merge the feature branch (here `feature/shortest-path`) into the `master` branch on `origin`.
 
 ## 8) Documentation in Markdown
 This documentation is written in **Markdown** format. Similar to HTML-formatted files, such `.md` text files are displayed by GitHub (and other software such as `jupyter-notebook`) as a formatted document with highlighting, images and links. Information and examples are readily available on the internet, e.g. at http://markdown.de or https://www.markdownguide.org/basic-syntax.
@@ -232,3 +251,7 @@ This documentation is written in **Markdown** format. Similar to HTML-formatted 
 It has become customary to document code on GitHub in Markdown with a file `README.md` that explains what the software does and how to install and run it.
 
 ## 8) References
+1. Git, Dezentrale Versionsverwaltung im Team, Grundlagen und Workflows, Ren&eacute; Preißel, Bj&oslash;rn Stachmann, dpunkt.verlag, 4. Auflage
+2. [Git Spickzettel](https://github.github.com/training-kit/downloads/de/github-git-cheat-sheet/)
+3. https://git-scm.com/docs/gittutorial
+4. https://git-scm.com/

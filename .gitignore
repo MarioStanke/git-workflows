@@ -3,3 +3,4 @@ src/hallowelt
 *~
 # ignore object files
 *.o
+.travis.yml.augustus
