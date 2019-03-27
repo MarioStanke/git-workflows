@@ -98,8 +98,7 @@ The * marks the current branch. Obtain all branches, including remote ones with 
 ```
 git checkout languages
 ```
-Make languages the current branch
-
+makes languages the current branch.
 Change `hallowelt.cc` like this
 
 ```
@@ -117,7 +116,7 @@ int main(){
 
 Indepently, the development can go on the master branch, e.g.
 ```
-checkout master
+git checkout master
 ```
 
 Add command line arguments to `main` function and `using namespace std`
@@ -214,7 +213,7 @@ Alternatively, GitHub -> Insights -> Network shows a graph of the branches and c
 
 The remote repository on GitHub is called **origin** by default. 
 
-To make the changes from your local master branch (current HEAD0 also in the `origin` repository on GitHub do
+To make the changes from your local master branch (current HEAD also in the `origin` repository on GitHub do
 ```
 git push origin master
 ```
@@ -223,9 +222,9 @@ or short
 git push
 ```
 
-Here, `origin` and `master` are the name of the repository and branch to which to [push](https://git-scm.com/docs/git-push) the current branch of the local repository.
+Here, `origin` and `master` are the name of the repository and branch, respectively, to which to [push](https://git-scm.com/docs/git-push) the current branch of the local repository.
 
-To incorporate changes (typically from other developers) that were made in the orign repository perform a so-called [pull](https://git-scm.com/docs/git-pull), e.g. from the master branch with
+To incorporate changes (typically from other developers) that were made in the origin repository perform a so-called [pull](https://git-scm.com/docs/git-pull), e.g. from the master branch with
 
 ```
 git pull origin master
@@ -239,11 +238,11 @@ Felix Becker or myself will review code in order to ensure quality. For this pur
 
 ```
 git branch feature/shortest-path
-git checkout  feature/shortest-path
+git checkout feature/shortest-path
 git push origin feature/shortest-path # creates the branch remotely as well
 [hours or days of work, local commiting and testing]
 ```
-Browse to the *branches* tab of the project on GitHub and click "New pull request" for `feature/shortest-path`. Fill out a summary of what you did as a comment and click "Create pull request". This
+To request that your changes are merged into the `master` branch on `origin`, browse to the *branches* tab of the project on GitHub and click "New pull request" for `feature/shortest-path`. Fill out a summary of what you did as a comment and click "Create pull request". This
 will send Felix and me a message that we are requested to *pull* your changes to the master branch.
 We will review the changes, give comments and possibly request changes. After possibly several rounds of requests and comments, eventually, we may merge the feature branch (here `feature/shortest-path`) into the `master` branch on `origin`.
 
