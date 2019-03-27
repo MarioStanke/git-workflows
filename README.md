@@ -1,6 +1,6 @@
 # Some Basics of Git
 
-## Creation of a New Project
+## 1) Create a new repository
  - Create an account on [GitHub](http://github.com)
  - Create a new project on GitHub (do **not** check box `README.md`), say, with name `ownProject`
  - Install git through package manager.
@@ -19,8 +19,7 @@ git push -u origin master
 Do no forget to replace YOUR-GH-NAME with your GitHub account name.
  - Browse to [https://github.com/YOUR-GH-NAME/ownProject] to look at the GitHub repository of `ownProject`.
 
-## Make some local changes
-### 1) Create/edit files
+##  2) Create/edit files
 For example, create a directory src under ownProject with files `src/hallowelt.cc` with content
 ```
 #include<iostream>
@@ -37,7 +36,7 @@ hallowelt: hallowelt.cc
 ```
 Make sure there is only one tab and no spaces before `g++` in this makefile.
 
-### 2) Make local commit
+## 3) Make local commit
 Add the two new files and their parent directory to the **staging area**, get a summary of the status of the local repository and commit the changes: In the parent directory execute
 ```
 git add src
@@ -70,7 +69,7 @@ Untracked files:
 ```
 After the commit, only your local repository is changed. The remote repository on GitHub is unchanged.
 
-## 3) Ignore files that do not need tracking
+## 4) Ignore files that do not need tracking
 
 Building the project by issuing `make` in the `src` directory creates the binary file `hallowelt`, which should not be tracked. Files in the workspace that should not be tracked can be specified in a hidden file `.gitignore`. For example, create `ownProject/.gitignore` with the content
 ```
@@ -82,7 +81,7 @@ src/hallowelt
 ```
 Commit these changes with `git add .gitignore` and otherwise as in described in 2).
 
-## 4) Create a branch
+## 5) Create a branch
 Suppose we wanted to add different language for the greeting in another branch. Do
 ```
 git branch languages
@@ -157,7 +156,7 @@ compares the current commit (*HEAD*) with the commit 5e873f2 before the branch. 
 
 To compare with the latest commit on the `languages` branch one would issue `git diff 3028bc7`.
 
-## 5) Merge two branches
+## 6) Merge two branches
 
 Suppose the language work has finished and we want to copy those changes into the master branch.
 Since the branching, both the `master` and `languages` branch have changed and some of the changes
@@ -208,7 +207,7 @@ git log --all --graph --oneline
 Alternatively, GitHub -> Insights -> Network shows a graph of the branches and commits:
 <img src="graph-after-merge.png" alt="Merge network on GitHub" width="600"/>
 
-## 6) Push and pull - exchange between repositories
+## 7) Push and pull - exchange between repositories
 
 The remote repository on GitHub is called **origin** by default. 
 
@@ -231,7 +230,7 @@ git pull origin master
 
 This merges the changes that were made locally with the changes that were made remotely since the two branches diverged. It may require that *conflicts are resolved*.
 
-## 7) pull request
+## 8) pull request
 
 Felix Becker or myself will review code in order to ensure quality. For this purpose, we will use *feature* branches. Suppose you have been assigned to implement a feature called *shortest-path*, have developed it on a local branch called `feature/shortest-path`, have built and tested it, finished this task and want to merge it into the `master` branch on GitHub.
 
@@ -245,12 +244,12 @@ Browse to the *branches* tab of the project on GitHub and click "New pull reques
 will send Felix and me a message that we are requested to *pull* your changes to the master branch.
 We will review the changes, give comments and possibly request changes. After possibly several rounds of requests and comments, eventually, we may merge the feature branch (here `feature/shortest-path`) into the `master` branch on `origin`.
 
-## 8) Documentation in Markdown
+## 9) Documentation in Markdown
 This documentation is written in **Markdown** format. Similar to HTML-formatted files, such `.md` text files are displayed by GitHub (and other software such as `jupyter-notebook`) as a formatted document with highlighting, images and links. Information and examples are readily available on the internet, e.g. at http://markdown.de or https://www.markdownguide.org/basic-syntax.
 
 It has become customary to document code on GitHub in Markdown with a file `README.md` that explains what the software does and how to install and run it.
 
-## 8) References
+## 10) References
 1. Git, Dezentrale Versionsverwaltung im Team, Grundlagen und Workflows, Ren&eacute; Preißel, Bj&oslash;rn Stachmann, dpunkt.verlag, 4. Auflage
 2. [Git Spickzettel](https://github.github.com/training-kit/downloads/de/github-git-cheat-sheet/)
 3. https://git-scm.com/docs/gittutorial
