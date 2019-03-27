@@ -3,8 +3,11 @@
 ## Creation of a New Project
  - Create an account on [GitHub](http://github.com)
  - Create a new project on GitHub (do **not** check box `README.md`), say, with name `ownProject`
- - Install git through package manager.
- - Configure git with `git config --global user.name "your name"` and `git config --global user.email "your-email-name@uni-greifswald.de"`  
+ - Install `git` through package manager.
+ - Configure git with  
+ `git config --global user.name "your name"`  
+ and  
+ `git config --global user.email "your-email-name@uni-greifswald.de"`  
  - Execute
  ```
 mkdir ownProject
