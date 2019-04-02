@@ -82,7 +82,7 @@ src/hallowelt
 # ignore object files
 *.o
 ```
-Commit these changes with `git add .gitignore` and otherwise as in described in 2).
+Commit these changes with `git add .gitignore` and otherwise as in described in 3).
 
 ## 5) Create a branch
 Suppose we wanted to add different language for the greeting in another branch. Do
