@@ -234,7 +234,7 @@ This merges the changes that were made locally with the changes that were made r
 
 ## 8) pull request
 
-Felix Becker or myself will review code in order to ensure quality. For this purpose, we will use *feature* branches. Suppose you have been assigned to implement a feature called *shortest-path*, have developed it on a local branch called `feature/shortest-path`, have built and tested it, finished this task and want to merge it into the `master` branch on GitHub.
+My co-teacher or myself will review code in order to ensure quality. For this purpose, we will use *feature* branches. Suppose you have been assigned to implement a feature called *shortest-path*, have developed it on a local branch called `feature/shortest-path`, have built and tested it, finished this task and want to merge it into the `master` branch on GitHub.
 
 ```
 git branch feature/shortest-path
@@ -243,7 +243,7 @@ git push origin feature/shortest-path # creates the branch remotely as well
 [hours or days of work, local commiting and testing]
 ```
 To request that your changes are merged into the `master` branch on `origin`, browse to the *branches* tab of the project on GitHub and click "New pull request" for `feature/shortest-path`. Fill out a summary of what you did as a comment and click "Create pull request". This
-will send Felix and me a message that we are requested to *pull* your changes to the master branch.
+will send both teachers a message that we are requested to *pull* your changes to the master branch.
 We will review the changes, give comments and possibly request changes. After possibly several rounds of requests and comments, eventually, we may merge the feature branch (here `feature/shortest-path`) into the `master` branch on `origin`.
 
 ## 9) Documentation in Markdown
