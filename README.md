@@ -131,7 +131,7 @@ int main(int argc, char** argv){
 ```
 and commit to master branch
 ```
-git add src/hallowelt.c
+git add src/hallowelt.cc
 ```
 
 Now we have two active branches with commited changes that are specific to the branch:
